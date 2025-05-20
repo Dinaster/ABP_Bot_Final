@@ -11,13 +11,13 @@ async def periodic_job(context: ContextTypes.DEFAULT_TYPE):
     await periodic_analysis(app)
 
 async def main():
-    print("🚀 Alpha Break Pro 777 bot is starting...")
+    print("🚀 Alpha Break Pro 777 bot is starting...", flush=True)
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     setup_handlers(app)
     app.job_queue.run_repeating(periodic_job, interval=3600, first=10)
     await app.initialize()
     await app.start()
-    print("✅ Bot is running...")
+    print("✅ Bot is running...", flush=True)
     await asyncio.Event().wait()
 
 if __name__ == "__main__":
